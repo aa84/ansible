@@ -12,6 +12,7 @@
     apt: 
       name: apache2
       state: latest
+    when: ansible_architecture == "armv7l" and ansible_distribution == "Debian"
 
   - name: add php support for apache
     apt:
