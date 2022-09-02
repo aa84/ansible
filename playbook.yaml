@@ -1,0 +1,7 @@
+---
+- hosts: mylocal
+  tasks:
+  - name: Clone repo https://github.com/sixeyed/kiamol.git
+    git:
+      repo: https://github.com/sixeyed/kiamol.git
+      dest: /Users/alessandro/github/kiamol
