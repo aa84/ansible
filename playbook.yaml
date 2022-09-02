@@ -4,8 +4,8 @@
   - name: Clone repo https://github.com/sixeyed/kiamol.git
     git:
       repo: https://github.com/sixeyed/kiamol.git
-      dest: /Users/alessandro/github/kiamol
+      dest: /Users/alessandro/Documents/github/sixeyed/kiamol
   - name: Clone repo https://github.com/aa84/kubernetes.git
     git:
       repo: https://github.com/aa84/kubernetes.git
-      dest: /Users/alessandro/github/aa84/kubernetes
+      dest: /Users/alessandro/Documents/github/aa84/kubernetes
