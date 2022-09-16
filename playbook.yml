@@ -1,0 +1,51 @@
+---
+- hosts: mypi
+  tasks:
+  - name: Install git
+    become: true
+    apt:
+      name: git
+      state: present
+      update_cache: yes
+  - name: Install vim
+    become: true
+    apt:
+      name: vim
+      state: present
+      update_cache: yes
+  - name: Install docker required packages
+    become: true
+    apt:
+      pkg:
+        - ca-certificates
+        - curl
+        - gnupg
+        - lsb-release
+      state: present
+      update_cache: true
+  - name: Add docker gpg apt key 
+    become: true
+    apt_key:
+      url: https://download.docker.com/linux/debian/gpg
+      state: present
+  - name: Add docker repository
+    become: true
+    apt_repository:
+      repo: deb https://download.docker.com/linux/debian bullseye stable
+      state: present
+  - name: Update apt and install docker-ce
+    become: true
+    apt:
+      pkg: 
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io
+        - docker-compose-plugin
+      state: latest
+      update_cache: true
+  - name: Add user to docker group
+    become: true
+    user:
+      name: "alessandro"
+      group: "docker"
+      append: yes
